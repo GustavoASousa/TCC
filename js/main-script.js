@@ -1,6 +1,3 @@
-var side_controls_shifter = document.querySelectorAll('.side-controls-shifter svg')
-var side_control_page_1 = document.querySelector('.side-control-page-1')
-var side_control_page_2 = document.querySelector('.side-control-page-2')
 var actionButton = document.querySelectorAll('.action-button button')
 var hiddenUpload = document.querySelector('.action-button .hidden-upload')
 var image_workspaceSpan = document.querySelector('.image-workspace span')
@@ -14,19 +11,7 @@ var controlCropper = document.querySelectorAll('.bottom-control .ctrl-cropper sv
 var lockCropper = document.querySelectorAll('.bottom-control .lock svg')
 var dargMode = document.querySelectorAll('.bottom-control .drag-mode svg')
 
-// shift control pages
-side_controls_shifter[0].onclick = () => {
-    side_control_page_1.style.display = 'block'
-    side_control_page_2.style.display = 'none'
-    side_controls_shifter[0].classList.add('active')
-    side_controls_shifter[1].classList.remove('active')
-}
-side_controls_shifter[1].onclick = () => {
-    side_control_page_1.style.display = 'none'
-    side_control_page_2.style.display = 'block'
-    side_controls_shifter[0].classList.remove('active')
-    side_controls_shifter[1].classList.add('active')
-}
+
 
 // upload image
 actionButton[0].onclick = () => hiddenUpload.click()
@@ -49,52 +34,21 @@ hiddenUpload.onchange = () => {
         background: false,
         ready: function () {
 
-            // zoom for image
-            zoom[0].onclick = () => cropper.zoom(0.1)
-            zoom[1].onclick = () => cropper.zoom(-0.1)
+            // zoom
+            zoom[0].onclick = () => cropper.zoom(0.25)
+            zoom[1].onclick = () => cropper.zoom(-0.25)
 
-            // rotate image
-            rotate[0].onclick = () => cropper.rotate(45)
-            rotate[1].onclick = () => cropper.rotate(-45)
-
-            // flip image
-            var flipX = -1
-            var flipY = -1
-            flip[0].onclick = () => {
-                cropper.scale(flipX, 1)
-                flipX = -flipX
-            }
-            flip[1].onclick = () => {
-                cropper.scale(1, flipY)
-                flipY = -flipY
-            }
-
-            // move image
+            // ajustar imagem
             move[0].onclick = () => cropper.move(0, -1)
             move[1].onclick = () => cropper.move(-1, 0)
             move[2].onclick = () => cropper.move(1, 0)
             move[3].onclick = () => cropper.move(0, 1)
 
-            // set aspect ratio
-            aspectRatio[0].onclick = () => cropper.setAspectRatio(1.7777777777777777)
-            aspectRatio[1].onclick = () => cropper.setAspectRatio(1.3333333333333333)
-            aspectRatio[2].onclick = () => cropper.setAspectRatio(1)
-            aspectRatio[3].onclick = () => cropper.setAspectRatio(0.6666666666666666)
-            aspectRatio[4].onclick = () => cropper.setAspectRatio(0) // free
+            // // lock cropper
+            // lockCropper[0].onclick = () => cropper.disable()
+            // lockCropper[1].onclick = () => cropper.enable()
 
-            // cropper control
-            controlCropper[0].onclick = () => cropper.clear()
-            controlCropper[1].onclick = () => cropper.crop()
-
-            // lock cropper
-            lockCropper[0].onclick = () => cropper.disable()
-            lockCropper[1].onclick = () => cropper.enable()
-
-            // drag mode
-            dargMode[0].onclick = () => cropper.setDragMode("crop")
-            dargMode[1].onclick = () => cropper.setDragMode("move")
-
-            // download cropped image
+            // Enviar imagem para o tensorflow
             actionButton[1].onclick = () => {
                 actionButton[1].innerText = '...'
                 cropper.getCroppedCanvas({ width: 100, heigth: 200 }).toBlob((blob) => {
