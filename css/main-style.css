@@ -8,7 +8,7 @@ body{
     align-items: center;
     justify-content: center;
     font-family: 'Maven Pro', sans-serif;
-    background-image: linear-gradient(90deg, #0AE0FF, #9900FB);
+    background-color: gray;
 }
 .container{
     background-color: rgba(255, 255, 255, 0.229);
@@ -171,44 +171,5 @@ body{
 }
 .action-button .upload:active,
 .action-button .download:active{
-    border: 1px solid rgba(255, 255, 255, 0.4);
-}
-/* bottom control */
-.bottom-control{
-    user-select: none;
-    display: inline-block;
-    margin-left: 211px;
-}
-.bottom-control .ctrl-cropper,
-.bottom-control .lock,
-.bottom-control .drag-mode{
-    display: inline-block;
-    width: 165px;
-    height: 99px;
-    border-right: 1px solid rgba(255, 255, 255, 0.239);
-}
-.bottom-control span{
-    display: block;
-    text-align: center;
-    padding: 10px;
-    font-size: 13px;
-    padding-bottom: 16px;
-}
-.bottom-control li{
-    list-style: none;
-    display: inline;
-    margin-left: 18%;
-}
-.bottom-control li svg{
-    position: relative;
-    display: inline;
-    border-radius: 50%;
-    padding: 4px;
-    transition-duration: .4s;
-    background-color: rgba(255, 255, 255, 0.129);
-    border: 1px solid transparent;
-    fill: white;
-}
-.bottom-control li svg:active{
     border: 1px solid rgba(255, 255, 255, 0.4);
 }

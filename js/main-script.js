@@ -34,9 +34,9 @@ hiddenUpload.onchange = () => {
     // apdate on new file selected issue removed here
     document.querySelector('.image-workspace').innerHTML = `<img src="" alt="">`
     var image_workspace = document.querySelector('.image-workspace img')
-    
+
     var file = hiddenUpload.files[0]
-    var url = window.URL.createObjectURL(new Blob([file], { type : 'image/jpg' }))
+    var url = window.URL.createObjectURL(new Blob([file], { type: 'image/jpg' }))
     image_workspace.src = url
     image_workspaceSpan.style.display = 'none'
     preview_containerSpan.style.display = 'none'
@@ -47,8 +47,8 @@ hiddenUpload.onchange = () => {
         viewMode: 2,
         modal: false,
         background: false,
-        ready: function(){
-            
+        ready: function () {
+
             // zoom for image
             zoom[0].onclick = () => cropper.zoom(0.1)
             zoom[1].onclick = () => cropper.zoom(-0.1)
@@ -97,13 +97,13 @@ hiddenUpload.onchange = () => {
             // download cropped image
             actionButton[1].onclick = () => {
                 actionButton[1].innerText = '...'
-                cropper.getCroppedCanvas().toBlob((blob) => {
+                cropper.getCroppedCanvas({ width: 100, heigth: 200 }).toBlob((blob) => {
                     var downloadUrl = window.URL.createObjectURL(blob)
                     var a = document.createElement('a')
                     a.href = downloadUrl
                     a.download = 'cropped-image.jpg' // output image name
-                    a.click()
-                    actionButton[1].innerText = 'Download'
+                    // a.click()
+                    // actionButton[1].innerText = 'Download'
                 })
             }
         }
