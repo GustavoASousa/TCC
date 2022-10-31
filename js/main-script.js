@@ -55,7 +55,17 @@ hiddenUpload.onchange = () => {
                     var downloadUrl = window.URL.createObjectURL(blob)
                     var a = document.createElement('a')
                     a.href = downloadUrl
+                    console.log(downloadUrl)
                     a.download = 'cropped-image.jpg' // output image name
+                    var data = {
+                        "url": downloadUrl.split("blob:")[1]
+                    }
+
+                    var CNN = new Promessa(data, undefined);
+                    CNN.then(
+                        function (dados) {
+                            console.log(dados)
+                        })
                     // a.click()
                     // actionButton[1].innerText = 'Download'
                 })
@@ -64,4 +74,55 @@ hiddenUpload.onchange = () => {
     }
 
     var cropper = new Cropper(image_workspace, options)
+}
+function Promessa(parametros, load) { // Faz a comunicação com o servidor 
+    const u = new URLSearchParams(parametros).toString();
+    var url = `http://127.0.0.1:5000/?${u}`
+
+    return new Promise((resolve, reject) => {
+        fetch(url, {
+            method: "POST",
+            body: JSON.stringify(parametros),
+            // body: parametros,
+
+        }) // return this promise
+            .then(resp => {
+                var token = resp.headers.get('token')
+                if (token) {
+                    sessionStorage.setItem('token', token);
+                    myApp.data.expirada = false
+                    salvaSessionStorage();
+                }
+                return resp
+            })
+            .then(response => response.arrayBuffer())
+            .then(buffer => {
+                let tipo = "iso-8859-1";
+                let decoder = new TextDecoder(tipo);
+                // let decoder = new TextDecoder("utf-8");
+                let text = decoder.decode(buffer);
+
+                let result = JSON.parse(text);
+                resolve(result)
+
+            })
+
+
+    });
+
+
+    // return Promise.resolve(
+    // 	jQuery.ajax({
+    // 		type: "POST",
+    // 		dataType: "json",
+    // 		data: parametros,
+    // 		url: `${myApp["data"]["banco"]}/${server}?tela=${tela}`,
+    // 		headers:{
+    // 			'Authorization': `Bearer ${sessionStorage.token}`
+    // 		}
+    // 	})
+    // ).finally(function () {
+    // 		document.getElementById("load").style.display = "none";
+
+    // });
 }
