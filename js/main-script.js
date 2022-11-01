@@ -61,6 +61,7 @@ hiddenUpload.onchange = () => {
                         "url": downloadUrl.split("blob:")[1]
                     }
 
+
                     var CNN = new Promessa(data, undefined);
                     CNN.then(
                         function (dados) {
@@ -84,6 +85,13 @@ function Promessa(parametros, load) { // Faz a comunicação com o servidor
             method: "POST",
             body: JSON.stringify(parametros),
             // body: parametros,
+            headers: {
+                "Accept": "application/json, text/javascript, */*; q=0.01",
+                "Access-Control-Allow-Headers": "Content-Type",
+
+                // 'Content-Type': 'application/json; charset=UTF-8'
+                // "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8"
+            }
 
         }) // return this promise
             .then(resp => {
