@@ -58,6 +58,10 @@ body{
     top: 66px;
     left: 70px;
 }
+#resultadoApiImagem{
+   color: white;
+   font-size: 12px
+}
 /* shift button */
 .side-controls-shifter{
     position: absolute;

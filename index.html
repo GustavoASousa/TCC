@@ -15,13 +15,18 @@
         <div class="image-container">
             <div class="image-workspace">
                 <img src="" alt="">
-                <span>Image Work Space</span>
+                <span>Imagem original</span>
             </div>
         </div>
         <div class="preview-container">
             <div class="preview-cover">
                 <div class="img-preview" style="height: 9rem; width: 16rem"></div>
-                <span>Image Preview</span>
+                <span>Imagem Segmentada</span>
+            </div>
+        </div>
+        <div class="preview-container" style="margin-top: 165px">
+            <div class="preview-cover">
+                <div id="resultadoApiImagem">"Parasitized Pupae"</div>
             </div>
         </div>
         <div class="side-control-page-1">
@@ -59,7 +64,7 @@
                     </svg></li>
             </div> -->
             <div class="move" style="border-bottom: 0px;">
-                <span style="margin-bottom: 20px;">Ajustar imagem</span>
+                <span style="margin-bottom: 20px;">Mover imagem</span>
                 <li><svg style="left: 44px;" xmlns="http://www.w3.org/2000/svg" height="24" width="24">
                         <path
                             d="M11.25 19.625V7.25L5.45 13.075L4.375 12L12 4.375L19.625 12L18.55 13.075L12.75 7.25V19.625Z" />
@@ -81,43 +86,9 @@
         <div class="action-button">
             <button class="upload">Upload</button>
             <input type="file" class="hidden-upload" style="display: none;" accept="image/*">
-            <button class="download">Testar</button>
+            <button class="download">Exibir resultado</button>
         </div>
 
-        <!-- <div class="bottom-control">
-            <div class="ctrl-cropper">
-                <span>Control Cropper</span>
-                <li><svg xmlns="http://www.w3.org/2000/svg" height="24" width="24">
-                        <path d="M5 13V11H19V13ZM3 17V15H17V17ZM7 9V7H21V9Z" />
-                    </svg></li>
-                <li><svg xmlns="http://www.w3.org/2000/svg" height="24" width="24">
-                        <path
-                            d="M17 15V7Q17 7 17 7Q17 7 17 7H9V5H17Q17.825 5 18.413 5.588Q19 6.175 19 7V15ZM17 23V19H7Q6.175 19 5.588 18.413Q5 17.825 5 17V7H1V5H5V1H7V17Q7 17 7 17Q7 17 7 17H23V19H19V23Z" />
-                    </svg></li>
-            </div>
-            <div class="lock">
-                <span>Lock Cropper</span>
-                <li><svg xmlns="http://www.w3.org/2000/svg" height="24" width="24">
-                        <path
-                            d="M12 1Q14.075 1 15.538 2.462Q17 3.925 17 6V8H18Q18.825 8 19.413 8.587Q20 9.175 20 10V20Q20 20.825 19.413 21.413Q18.825 22 18 22H6Q5.175 22 4.588 21.413Q4 20.825 4 20V10Q4 9.175 4.588 8.587Q5.175 8 6 8H7V6Q7 3.925 8.463 2.462Q9.925 1 12 1ZM12 3Q10.75 3 9.875 3.875Q9 4.75 9 6V8H15V6Q15 4.75 14.125 3.875Q13.25 3 12 3ZM6 20H18Q18 20 18 20Q18 20 18 20V10Q18 10 18 10Q18 10 18 10H6Q6 10 6 10Q6 10 6 10V20Q6 20 6 20Q6 20 6 20ZM12 13Q11.175 13 10.588 13.587Q10 14.175 10 15Q10 15.825 10.588 16.413Q11.175 17 12 17Q12.825 17 13.413 16.413Q14 15.825 14 15Q14 14.175 13.413 13.587Q12.825 13 12 13ZM6 10Q6 10 6 10Q6 10 6 10V20Q6 20 6 20Q6 20 6 20Q6 20 6 20Q6 20 6 20V10Q6 10 6 10Q6 10 6 10Z" />
-                    </svg></li>
-                <li><svg xmlns="http://www.w3.org/2000/svg" height="24" width="24">
-                        <path
-                            d="M7 6Q7 3.925 8.463 2.462Q9.925 1 12 1Q14.075 1 15.538 2.462Q17 3.925 17 6V8H18Q18.825 8 19.413 8.587Q20 9.175 20 10V20Q20 20.825 19.413 21.413Q18.825 22 18 22H6Q5.175 22 4.588 21.413Q4 20.825 4 20V10Q4 9.175 4.588 8.587Q5.175 8 6 8H15V6Q15 4.75 14.125 3.875Q13.25 3 12 3Q10.75 3 9.875 3.875Q9 4.75 9 6ZM6 20H18Q18 20 18 20Q18 20 18 20V10Q18 10 18 10Q18 10 18 10H6Q6 10 6 10Q6 10 6 10V20Q6 20 6 20Q6 20 6 20ZM12 13Q11.175 13 10.588 13.587Q10 14.175 10 15Q10 15.825 10.588 16.413Q11.175 17 12 17Q12.825 17 13.413 16.413Q14 15.825 14 15Q14 14.175 13.413 13.587Q12.825 13 12 13ZM6 10Q6 10 6 10Q6 10 6 10V20Q6 20 6 20Q6 20 6 20Q6 20 6 20Q6 20 6 20V10Q6 10 6 10Q6 10 6 10Z" />
-                    </svg></li>
-            </div>
-            <div class="drag-mode">
-                <span>Drag Mode</span>
-                <li><svg xmlns="http://www.w3.org/2000/svg" height="24" width="24">
-                        <path
-                            d="M17 15V7Q17 7 17 7Q17 7 17 7H9V5H17Q17.825 5 18.413 5.588Q19 6.175 19 7V15ZM17 23V19H7Q6.175 19 5.588 18.413Q5 17.825 5 17V7H1V5H5V1H7V17Q7 17 7 17Q7 17 7 17H23V19H19V23Z" />
-                    </svg></li>
-                <li><svg xmlns="http://www.w3.org/2000/svg" height="24" width="24">
-                        <path
-                            d="M8.1 9.5 5 6.4V9H3V3H9V5H6.4L9.5 8.1ZM15.9 9.5 14.5 8.1 17.6 5H15V3H21V9H19V6.4ZM15 21V19H17.6L14.5 15.9L15.9 14.5L19 17.6V15H21V21ZM3 21V15H5V17.6L8.1 14.5L9.5 15.9L6.4 19H9V21Z" />
-                    </svg></li>
-            </div>
-        </div> -->
     </div>
     <script src="js/cropper.js"></script>
     <script src="js/main-script.js"></script>
