@@ -1,16 +1,20 @@
 /* optional */
 @import url('https://fonts.googleapis.com/css2?family=Maven+Pro:wght@600&display=swap');
-html{
+
+html {
     height: 100%;
 }
-body{
+
+body {
     display: flex;
     align-items: center;
     justify-content: center;
     font-family: 'Maven Pro', sans-serif;
     background-color: gray;
+    overflow: hidden;
 }
-.container{
+
+.container {
     background-color: rgba(255, 255, 255, 0.229);
     position: relative;
     width: 76%;
@@ -19,27 +23,32 @@ body{
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
     margin-top: 15px;
     padding-bottom: 40px;
+
 }
+
 /* image area and preview */
-.image-container{
+.image-container {
     padding: 20px;
     width: 677px;
     height: calc(100% - 100px);
     border-right: 1px solid rgba(255, 255, 255, 0.239);
     border-bottom: 1px solid rgba(255, 255, 255, 0.239);
 }
-.image-workspace{
+
+.image-workspace {
     height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
 }
-.container img{
+
+.container img {
     max-width: 100%;
     max-height: 100%;
     display: block;
 }
-.preview-container{
+
+.preview-container {
     border: 2px solid rgba(255, 255, 255, 0.239);
     position: absolute;
     top: 20px;
@@ -50,51 +59,62 @@ body{
     align-items: center;
     justify-content: center;
 }
-.preview-cover{
+
+.preview-cover {
     overflow: hidden;
 }
-.preview-container span{
+
+.preview-container span {
     position: absolute;
     top: 66px;
     left: 70px;
 }
-#resultadoApiImagem{
-   color: white;
-   font-size: 12px
+
+#resultadoApiImagem {
+    color: white;
+    font-size: 12px;
 }
+
+letr
+
 /* shift button */
-.side-controls-shifter{
+.side-controls-shifter {
     position: absolute;
     right: 20px;
     top: 177px;
     user-select: none;
 }
-.side-controls-shifter svg{
+
+.side-controls-shifter svg {
     display: inline-block;
     background-color: rgba(255, 255, 255, 0.129);
     border-bottom: 1px solid transparent;
     border-radius: 3px;
     fill: white;
 }
-.side-controls-shifter .active{
+
+.side-controls-shifter .active {
     border: 1px solid rgba(255, 255, 255, 0.4);
 }
+
 /* side control */
 .side-control-page-1,
-.side-control-page-2{
+.side-control-page-2 {
     position: absolute;
     right: 20px;
     bottom: 116px;
     user-select: none;
     width: 267px;
 }
+
 .side-control-page-1 span,
-.side-control-page-2 span{
+.side-control-page-2 span {
     display: block;
     font-size: 13px;
 }
+
 .side-control-page-1 li,
-.side-control-page-2 li{
+.side-control-page-2 li {
     list-style: none;
     height: auto;
     display: inline-block;
@@ -102,7 +122,8 @@ body{
     margin-top: 6px;
     position: relative;
 }
-.side-control-page-1 li svg{
+
+.side-control-page-1 li svg {
     position: relative;
     display: inline;
     border-radius: 50%;
@@ -113,29 +134,35 @@ body{
     fill: white;
     background-color: rgba(255, 255, 255, 0.129);
 }
-.side-control-page-1 li svg:active{
+
+.side-control-page-1 li svg:active {
     border: 1px solid rgba(255, 255, 255, 0.4);
 }
+
 .side-control-page-1 .zoom,
 .side-control-page-1 .rotate,
 .side-control-page-1 .flip,
-.side-control-page-1 .move{
+.side-control-page-1 .move {
     padding-left: 20px;
     margin-bottom: 0px;
     margin-top: 10px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.239);
     height: 64px;
 }
-.side-control-page-2{
+
+.side-control-page-2 {
     top: 205px;
 }
-.side-control-page-2 .aspect{
+
+.side-control-page-2 .aspect {
     margin-left: 2px;
 }
-.side-control-page-2 .aspect span{
+
+.side-control-page-2 .aspect span {
     padding-left: 19px;
 }
-.side-control-page-2 li{
+
+.side-control-page-2 li {
     font-size: 15px;
     margin-left: 0px;
     padding: 10px;
@@ -145,18 +172,21 @@ body{
     border: 1px solid transparent;
     transition-duration: .4s;
 }
-.side-control-page-2 li:active{
+
+.side-control-page-2 li:active {
     border: 1px solid rgba(255, 255, 255, 0.4);
 }
+
 /* action button */
-.action-button{
+.action-button {
     display: inline-block;
     position: absolute;
     bottom: 0px;
     border-right: 1px solid rgba(255, 255, 255, 0.239);
 }
+
 .action-button .upload,
-.action-button .download{
+.action-button .download {
     display: block;
     width: 170px;
     height: 35px;
@@ -173,7 +203,40 @@ body{
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
     border: 1px solid rgba(255, 255, 255, 0.2);
 }
+
 .action-button .upload:active,
-.action-button .download:active{
+.action-button .download:active {
     border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.loader {
+    width: 48px;
+    height: 48px;
+    border: 5px solid #FFF;
+    border-bottom-color: transparent;
+    border-radius: 50%;
+    display: inline-block;
+    box-sizing: border-box;
+    animation: rotation 1s linear infinite;
+    margin-left: 40px;
+}
+
+@keyframes rotation {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+#divload {
+    background-color: rgba(0, 0, 0, 0.711);
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
 }
