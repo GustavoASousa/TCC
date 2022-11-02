@@ -148,12 +148,7 @@ function uploadImagemEctare(url) {
     });
 
     formData.append('url', url);
-    // req.open('POST', "https://server.ectarepay.com.br/" + "_e" + "/ectare_adm?tela=SetUploadDocumentos&dbteste=false&idpessoa=" + idpessoa + "&tipo=" + nome, true);doradinho
-    // req.open("POST", "https://server.ectarepay.com.br/" + myApp.data.versao + "/ectare_adm?tela=InserePessoasExcelSextou&dbteste=false&user=" + myApp.data.usuario.pessoa.idpessoa + "&idsextou_solicitacao=" + document.getElementById('idsextou_solicitacao').value, true);
     req.open("POST", "http://localhost:8080/EctareServer" + "/ectare_adm?tela=insereimgpupa&dbteste=false", true);
-    // req.open('POST', "https://server.ectarepay.com.br/" + "doradinho_e" + "/ectare_adm?tela=SetUploadDocumentos&dbteste=false&idpessoa=" + idpessoa +
-    // "&idtipodocumento=" + idtipodocumento, true);
-    // req.setRequestHeader('Authorization', `Bearer ${sessionStorage.token}`, )
     req.send(formData);
 }
 
